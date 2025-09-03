@@ -1,12 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
-import { Copy, Zap, FileText, Github } from 'lucide-react';
+import { FileText, Github } from 'lucide-react';
 import RippleButton from './components/RippleButton';
 import TypingText from './components/TypingText';
+import BoltModal from './components/BoltModal';
 
 function App() {
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isTyping, setIsTyping] = useState(true);
+  const [isBoltModalOpen, setIsBoltModalOpen] = useState(false);
   const vantaRef = useRef<any>(null);
   
   const phrases = ['agents', 'LLMs', 'copilots', 'GPTs', 'tools'];
@@ -172,14 +174,21 @@ to markdown format using Markdown Maker.
             {/* Feature 1 */}
             <div className="group relative bg-gray-900 rounded-t-xl md:rounded-l-xl md:rounded-tr-none p-8 border-2 border-gray-700 hover:border-cyan-400/50 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-400/10 relative top-[2px] md:top-0 md:left-[2px] hover:z-10">
               <div className="mb-6">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-500 to-cyan-400 text-gray-900">
-                  <Zap className="h-6 w-6" />
+                <div className="inline-flex items-center justify-center w-24 h-24 rounded-lg bg-gradient-to-br from-cyan-500 to-cyan-400 text-gray-900">
+                  <svg className="h-16 w-16" viewBox="0 0 32 32" fill="none">
+                    <path d="M20.9118 20.9144C26.7931 15.0331 29.3606 8.0651 26.6464 5.35096C23.9323 2.63681 16.9643 5.2043 11.083 11.0856C5.20173 16.9669 2.63425 23.9349 5.34839 26.649C8.06253 29.3632 15.0305 26.7957 20.9118 20.9144Z" stroke="currentColor" strokeWidth="1.5"/>
+                    <path d="M26.6535 26.6561C29.3677 23.942 26.8002 16.974 20.9189 11.0927C15.0376 5.21141 8.06961 2.64393 5.35546 5.35807C2.64132 8.07221 5.2088 15.0402 11.0901 20.9215C16.9714 26.8028 23.9394 29.3703 26.6535 26.6561Z" stroke="currentColor" strokeWidth="1.5"/>
+                    <path d="M11.09 11.09C13.8 13.8 13.8 18.2 11.09 20.92" stroke="currentColor" strokeWidth="1.5"/>
+                    <path d="M20.92 20.92C18.21 18.21 13.81 18.21 11.09 20.92L5.36 26.65" stroke="currentColor" strokeWidth="1.5"/>
+                    <path d="M20.92 11.09C18.21 13.8 18.21 18.2 20.92 20.92L26.65 26.65" stroke="currentColor" strokeWidth="1.5"/>
+                    <path d="M5.35 5.35998L11.08 11.09C13.79 13.8 18.19 13.8 20.91 11.09L26.65 5.34998" stroke="currentColor" strokeWidth="1.5"/>
+                  </svg>
                 </div>
               </div>
               <h3 className="text-xl font-extralight mb-4 group-hover:text-cyan-400 transition-colors">
                 One-Click Conversion
               </h3>
-              <p className="text-sm md:text-base text-gray-400">
+              <p className="text-sm text-gray-400">
                 Convert any WordPress post or page to clean markdown format with a single click. 
                 No complex settings or configurations required. No loading time or waiting.
               </p>
@@ -188,14 +197,23 @@ to markdown format using Markdown Maker.
             {/* Feature 2 */}
             <div className="group relative bg-gray-900 rounded-none md:rounded-none p-8 border-2 border-gray-700 border-t-0 border-t-2 hover:border-pink-400/50 transition-all duration-300 hover:shadow-xl hover:shadow-pink-400/10 hover:z-10">
               <div className="mb-6">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br from-pink-500 to-pink-400 text-gray-900">
-                  <Copy className="h-6 w-6" />
+                <div className="inline-flex items-center justify-center w-24 h-24 rounded-lg bg-gradient-to-br from-pink-500 to-pink-400 text-gray-900">
+                  <svg className="h-16 w-16" viewBox="0 0 32 32" fill="none">
+                    <path d="M17.07 6.40997H25.33C25.48 6.40997 25.6 6.52997 25.6 6.67997V14.94" stroke="currentColor" strokeWidth="1.5"/>
+                    <path d="M25.6 6.40997L18.14 13.87" stroke="currentColor" strokeWidth="1.5"/>
+                    <path d="M4.26999 6.40997H12.53C12.68 6.40997 12.8 6.52997 12.8 6.67997V14.94" stroke="currentColor" strokeWidth="1.5"/>
+                    <path d="M12.81 6.40997L5.34 13.87" stroke="currentColor" strokeWidth="1.5"/>
+                    <path d="M4.26999 19.2H12.53C12.68 19.2 12.8 19.3199 12.8 19.4699V27.7299" stroke="currentColor" strokeWidth="1.5"/>
+                    <path d="M12.81 19.2L5.34 26.67" stroke="currentColor" strokeWidth="1.5"/>
+                    <path d="M17.07 19.2H25.33C25.48 19.2 25.6 19.3199 25.6 19.4699V27.7299" stroke="currentColor" strokeWidth="1.5"/>
+                    <path d="M25.6 19.2L18.14 26.67" stroke="currentColor" strokeWidth="1.5"/>
+                  </svg>
                 </div>
               </div>
               <h3 className="text-xl font-extralight mb-4 group-hover:text-pink-400 transition-colors">
                 Copy-Paste Perfect
               </h3>
-              <p className="text-sm md:text-base text-gray-400">
+              <p className="text-sm text-gray-400">
                 Converted text is optimized for LLMs and AI agents. Clean, accurate formatting 
                 ensures your content works perfectly with ChatGPT, Claude, Perplexity, and more.
               </p>
@@ -204,14 +222,21 @@ to markdown format using Markdown Maker.
             {/* Feature 3 */}
             <div className="group relative bg-gray-900 rounded-b-xl md:rounded-r-xl md:rounded-bl-none p-8 border-2 border-gray-700 border-t-2 hover:border-cyan-400/50 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-400/10 relative -top-[2px] md:-top-0 md:-left-[2px] hover:z-10">
               <div className="mb-6">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-500 to-pink-400 text-gray-900">
-                  <FileText className="h-6 w-6" />
+                <div className="inline-flex items-center justify-center w-24 h-24 rounded-lg bg-gradient-to-br from-cyan-500 to-pink-400 text-gray-900">
+                  <svg className="h-16 w-16" viewBox="0 0 32 32" fill="none">
+                    <path d="M26.41 26.4L5.34 5.34003" stroke="currentColor" strokeWidth="1.5"/>
+                    <path d="M26.41 5.60999L5.34 26.67" stroke="currentColor" strokeWidth="1.5"/>
+                    <path d="M29.87 16C22.21 16 16.01 9.79001 16.01 2.14001" stroke="currentColor" strokeWidth="1.5"/>
+                    <path d="M2.14 16C9.8 16 16 9.79001 16 2.14001" stroke="currentColor" strokeWidth="1.5"/>
+                    <path d="M2.14 16C9.8 16 16 22.21 16 29.86" stroke="currentColor" strokeWidth="1.5"/>
+                    <path d="M29.87 16C22.21 16 16.01 22.21 16.01 29.86" stroke="currentColor" strokeWidth="1.5"/>
+                  </svg>
                 </div>
               </div>
               <h3 className="text-xl font-extralight mb-4 group-hover:text-cyan-400 transition-colors">
                 No AI Guarentee
               </h3>
-              <p className="text-sm md:text-base text-gray-400">
+              <p className="text-sm text-gray-400">
                 We wrote the plugin and made this site with an AI agent (yes really!), but the plugin is old fashioned vanilla javascript. No AI, no API calls. Bulletproof.
               </p>
             </div>
@@ -230,27 +255,27 @@ to markdown format using Markdown Maker.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex flex-col items-center">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-cyan-400 text-gray-900 flex items-center justify-center text-2xl font-extralight mb-4">
-                1
+              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-cyan-500 to-cyan-400 text-gray-900 flex items-center justify-center text-2xl font-extralight mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M510.77-235.38v-440H360v-49.24h200v489.24h-49.23Z"/></svg>
               </div>
               <h3 className="text-xl font-extralight mb-2">Install Plugin</h3>
-              <p className="text-gray-400">Download and activate Markdown Maker in your WordPress admin</p>
+              <p className="text-sm text-gray-400">Download and activate Markdown Maker in your WordPress admin</p>
             </div>
             
             <div className="flex flex-col items-center">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-pink-500 to-pink-400 text-gray-900 flex items-center justify-center text-2xl font-extralight mb-4">
-                2
+              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-pink-500 to-pink-400 text-gray-900 flex items-center justify-center text-2xl font-extralight mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M340-235.38v-195.39q0-30.77 21.54-52.31 21.54-21.54 52.31-21.54h172.3q10.77 0 17.7-6.92 6.92-6.92 6.92-17.69v-121.54q0-10.77-6.92-17.69-6.93-6.92-17.7-6.92H340v-49.24h246.15q30.77 0 52.31 21.54Q660-681.54 660-650.77v121.54q0 30.77-21.54 52.31-21.54 21.54-52.31 21.54h-172.3q-10.77 0-17.7 6.92-6.92 6.92-6.92 17.69v146.15H660v49.24H340Z"/></svg>
               </div>
               <h3 className="text-xl font-extralight mb-2">Add Buttons</h3>
-              <p className="text-gray-400">Use our developer-friendly plugin and functions to match any theme natively</p>
+              <p className="text-sm text-gray-400">Use our developer-friendly plugin and functions to match any theme natively</p>
             </div>
             
             <div className="flex flex-col items-center">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-pink-400 text-gray-900 flex items-center justify-center text-2xl font-extralight mb-4">
-                3
+              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-cyan-500 to-pink-400 text-gray-900 flex items-center justify-center text-2xl font-extralight mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M355.38-235.38v-49.24h215.39q10.77 0 17.69-6.92 6.92-6.92 6.92-17.69v-121.54q0-10.77-6.92-17.69-6.92-6.92-17.69-6.92H395.38v-49.24h175.39q10.77 0 17.69-6.92 6.92-6.92 6.92-17.69v-121.54q0-10.77-6.92-17.69-6.92-6.92-17.69-6.92H355.38v-49.24h215.39q30.77 0 52.31 21.54 21.54 21.54 21.54 52.31v122.15q0 19.62-12.2 34.12-12.19 14.5-31.04 14.5 18.85 0 31.04 14.5 12.2 14.5 12.2 34.12v122.15q0 30.77-21.54 52.31-21.54 21.54-52.31 21.54H355.38Z"/></svg>
               </div>
               <h3 className="text-xl font-extralight mb-2">Copy & Go!</h3>
-              <p className="text-gray-400">Get clean markdown ready for agents, LLMs, documentation, or any purpose</p>
+              <p className="text-sm text-gray-400">Get clean markdown ready for agents, LLMs, documentation, or any purpose</p>
             </div>
           </div>
         </div>
@@ -340,16 +365,25 @@ to markdown format using Markdown Maker.
       </footer>
       
       {/* Floating Bolt */}
-      <div className="fixed bottom-4 left-4 md:bottom-6 md:left-6 z-50">
-        <a href="https://bolt.new" target="_blank" rel="noopener noreferrer">
+      <div className="fixed bottom-4 left-4 md:bottom-6 md:left-6 z-40">
+        <button 
+          className="bolt-badge"
+          onClick={() => setIsBoltModalOpen(true)}
+        >
           <img 
             src="/bolt.svg" 
             alt="Bolt" 
             className="w-16 h-16 md:w-24 md:h-24 animate-rock cursor-pointer hover:scale-105 transition-transform duration-200"
             style={{ filter: 'drop-shadow(0 0 20px #06b6d4)' }}
           />
-        </a>
+        </button>
       </div>
+
+      {/* Bolt Modal */}
+      <BoltModal 
+        isOpen={isBoltModalOpen} 
+        onClose={() => setIsBoltModalOpen(false)} 
+      />
     </div>
   );
 }
