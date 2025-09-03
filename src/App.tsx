@@ -66,13 +66,13 @@ function App() {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-gray-900 to-pink-900/40"></div>
         
         {/* Navigation */}
-        <nav className="relative z-10 flex items-center justify-between px-6 py-4 lg:px-8">
+        <nav className="relative z-10 flex items-center justify-between px-6 py-8 lg:px-8">
           <div className="flex items-center space-x-2">
             <img src="/mm.svg" alt="Markdown Maker" className="h-8 w-8" />
             <span className="text-xl font-extralight">Markdown Maker</span>
           </div>
             <a 
-              href="#download" 
+              href="https://github.com/clarklab/markdown-maker-wp-plugin/raw/refs/heads/main/markdown-maker-plugin-superfun.zip" 
               className="inline-flex items-center px-5 py-3 bg-cyan-400 text-gray-900 rounded-lg text-lg font-medium hover:bg-cyan-300 transition-colors"
             >
               Get WP Plugin
@@ -83,7 +83,7 @@ function App() {
         </nav>
 
         {/* Hero Content */}
-        <div className="hero relative z-10 px-6 py-20 lg:px-8 lg:py-32">
+        <div className="hero relative z-10 px-6 py-12 lg:px-8 lg:py-24">
           
           <div className="mx-auto max-w-5xl text-center">
             <h1 className="text-4xl font-extralight tracking-tight sm:text-6xl lg:text-7xl">
@@ -98,7 +98,7 @@ function App() {
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-4">
             <a 
-              href="#download" 
+              href="https://github.com/clarklab/markdown-maker-wp-plugin/raw/refs/heads/main/markdown-maker-plugin-superfun.zip" 
               className="inline-flex items-center px-6 py-4 bg-cyan-400 text-gray-900 rounded-lg text-xl font-medium hover:bg-cyan-300 transition-colors"
             >
               Get WP Plugin
@@ -107,7 +107,7 @@ function App() {
               </svg>
             </a>
               <a 
-                href="https://github.com/your-repo/markdown-maker" 
+                href="https://github.com/clarklab/markdown-maker-wp-plugin" 
                 className="group inline-flex items-center px-4 py-2 text-gray-300 hover:text-cyan-400 transition-colors"
               >
                 <span className="text-cyan-400 inline-block pr-1 group-hover:-translate-x-1 transition-transform duration-300">[</span> View on GitHub <span className="text-cyan-400 pl-1 pl-1 group-hover:translate-x-1 transition-transform duration-300">]</span>
@@ -152,7 +152,7 @@ to markdown format using Markdown Maker.
       <section id="features" className="py-20 px-6 lg:px-8 bg-gray-800">
         <div className="mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="text-3xl font-extralight tracking-tight sm:text-4xl">
               Built for the{' '}
               <span className="text-cyan-400">AI Era</span>
             </h2>
@@ -215,13 +215,13 @@ to markdown format using Markdown Maker.
       {/* How It Works */}
       <section className="py-20 px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-16">
+          <h2 className="text-3xl font-extralight tracking-tight sm:text-4xl mb-16">
             Simple as <span className="text-pink-400">1-2-3</span>
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex flex-col items-center">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-cyan-400 text-gray-900 flex items-center justify-center text-2xl font-bold mb-4">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-cyan-400 text-gray-900 flex items-center justify-center text-2xl font-extralight mb-4">
                 1
               </div>
               <h3 className="text-xl font-semibold mb-2">Install Plugin</h3>
@@ -229,7 +229,7 @@ to markdown format using Markdown Maker.
             </div>
             
             <div className="flex flex-col items-center">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-pink-500 to-pink-400 text-gray-900 flex items-center justify-center text-2xl font-bold mb-4">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-pink-500 to-pink-400 text-gray-900 flex items-center justify-center text-2xl font-extralight mb-4">
                 2
               </div>
               <h3 className="text-xl font-semibold mb-2">Add Buttons</h3>
@@ -237,7 +237,7 @@ to markdown format using Markdown Maker.
             </div>
             
             <div className="flex flex-col items-center">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-pink-400 text-gray-900 flex items-center justify-center text-2xl font-bold mb-4">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-pink-400 text-gray-900 flex items-center justify-center text-2xl font-extralight mb-4">
                 3
               </div>
               <h3 className="text-xl font-semibold mb-2">Copy & Go!</h3>
@@ -250,7 +250,7 @@ to markdown format using Markdown Maker.
       {/* CTA Section */}
       <section className="py-20 px-6 lg:px-8 bg-gradient-to-r from-gray-800 to-gray-900">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-6">
+          <h2 className="text-3xl font-extralight tracking-tight sm:text-4xl mb-6">
             Ready to streamline <br></br>your{' '}
             <span className="bg-gradient-to-r from-cyan-400 to-pink-400 bg-clip-text text-transparent">
               users' AI workflow?
@@ -261,18 +261,17 @@ to markdown format using Markdown Maker.
             their WordPress content with modern AI tooling.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="#download"
-              className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-cyan-500 to-cyan-400 px-8 py-4 text-lg font-semibold text-gray-900 shadow-lg hover:from-cyan-400 hover:to-cyan-300 transition-all duration-200 transform hover:scale-105"
+          <a 
+              href="https://github.com/clarklab/markdown-maker-wp-plugin/raw/refs/heads/main/markdown-maker-plugin-superfun.zip" 
+              className="inline-flex items-center px-5 py-3 bg-cyan-400 text-gray-900 rounded-lg text-lg font-medium hover:bg-cyan-300 transition-colors"
             >
-              Download Plugin
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" className="w-5 h-5 ml-2">
-                <path d="M10.75 2.75a.75.75 0 0 0-1.5 0v8.614L6.295 8.235a.75.75 0 1 0-1.09 1.03l4.25 4.5a.75.75 0 0 0 1.09 0l4.25-4.5a.75.75 0 0 0-1.09-1.03l-2.955 3.129V2.75Z" />
-
+              Get WP Plugin
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" className="w-6 h-6 ml-3">
+                <path d="m720-80 120-120-28-28-72 72v-164h-40v164l-72-72-28 28L720-80ZM480-800 243-663l237 137 237-137-237-137ZM120-321v-318q0-22 10.5-40t29.5-29l280-161q10-5 19.5-8t20.5-3q11 0 21 3t19 8l280 161q19 11 29.5 29t10.5 40v159h-80v-116L479-434 200-596v274l240 139v92L160-252q-19-11-29.5-29T120-321ZM720 0q-83 0-141.5-58.5T520-200q0-83 58.5-141.5T720-400q83 0 141.5 58.5T920-200q0 83-58.5 141.5T720 0ZM480-491Z"/>
               </svg>
             </a>
             <a
-              href="#docs"
+              href="https://github.com/clarklab/markdown-maker-wp-plugin/"
               className="inline-flex items-center justify-center rounded-lg border border-gray-600 px-8 py-4 text-lg font-semibold text-gray-300 hover:bg-gray-700 hover:text-white transition-all duration-200"
             >
               View Documentation
@@ -288,13 +287,13 @@ to markdown format using Markdown Maker.
             <div className="md:col-span-2">
               <div className="flex items-center space-x-2 mb-4">
                 <FileText className="h-6 w-6 text-cyan-400" />
-                <span className="text-lg font-bold">Markdown Maker</span>
+                <span className="text-lg font-extralight">Markdown Maker</span>
               </div>
               <p className="text-gray-400 mb-4 max-w-md">
                 The ultimate WordPress plugin for converting your content to AI-ready markdown format.
               </p>
               <div className="flex space-x-4">
-                <a href="#github" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                <a href="https://github.com/clarklab/markdown-maker-wp-plugin" className="text-gray-400 hover:text-cyan-400 transition-colors">
                   <Github className="h-5 w-5" />
                 </a>
               </div>
@@ -324,7 +323,7 @@ to markdown format using Markdown Maker.
           </div>
           
           <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
-            <p>&copy; 2025 Markdown Maker. All rights reserved.</p>
+            <p>&copy; 2025 Markdown Maker. All rights reserved. Made by <a href="https://wims.vc" className="text-white hover:text-gray-300 transition-colors">wims.vc</a></p>
           </div>
         </div>
       </footer>
