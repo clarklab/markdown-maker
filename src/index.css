@@ -31,6 +31,22 @@
   overflow: hidden;
 }
 
+/* Hide scrollbars but keep scroll functionality */
+.typing-container pre,
+.typing-measure,
+.markdown-preview {
+  /* Firefox */
+  scrollbar-width: none;
+  /* Safari and Chrome */
+  -ms-overflow-style: none;
+}
+
+.typing-container pre::-webkit-scrollbar,
+.typing-measure::-webkit-scrollbar,
+.markdown-preview::-webkit-scrollbar {
+  display: none;
+}
+
 /* Measurement element */
 .typing-measure {
   margin: 0;

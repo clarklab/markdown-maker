@@ -97,7 +97,7 @@ function App() {
               </span>
             </h1>
             <p className="mt-6 text-sm md:text-lg leading-4.5 md:leading-8 text-gray-300 max-w-2xl mx-auto">
-              Search traffic is down. Users don't read. AI is eating your lunch. Give your site a fighting chance by making it easy for your user's AI workflows to understand.
+              Search traffic is down. Users don't read. AI is eating your lunch. Give your site a fighting chance by making it easy for your user's AI agents or workflows to read & understand.
             </p>
             <div className="mt-10 flex flex-col md:flex-row items-center justify-center gap-x-4 gap-y-4">
             <RippleButton
@@ -307,7 +307,7 @@ to markdown format using Markdown Maker.
                 <a href="https://github.com/clarklab/markdown-maker-wp-plugin" className="text-gray-400 hover:text-cyan-400 transition-colors">
                   <Github className="h-5 w-5" />
                 </a>
-                <a class="text-xl text-gray-400 hover:text-cyan-400 transition-colors" href="https://x.com/clarklab">𝕏</a>
+                <a className="text-xl text-gray-400 hover:text-cyan-400 transition-colors" href="https://x.com/clarklab">𝕏</a>
               </div>
             </div>
             

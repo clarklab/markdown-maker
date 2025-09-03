@@ -17,8 +17,12 @@ const TypingText: React.FC<TypingTextProps> = ({
   const [isTyping, setIsTyping] = useState(false);
   const [containerHeight, setContainerHeight] = useState<number | null>(null);
   const [isReady, setIsReady] = useState(false);
+  const [loadingSymbol, setLoadingSymbol] = useState('※');
   const measureRef = useRef<HTMLPreElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  
+  const loadingSymbols = ['※', '⁂', '⌾', '⌘'];
+  const prefixText = '※ Generating from Post ID: 79\n\n';
 
   // Initial measurement and setup
   useEffect(() => {
@@ -49,6 +53,19 @@ const TypingText: React.FC<TypingTextProps> = ({
     return () => window.removeEventListener('resize', handleResize);
   }, [isReady]);
 
+  // Update loading symbol every 15 characters typed
+  useEffect(() => {
+    if (displayedText.length > 0) {
+      const charactersTyped = displayedText.length;
+      const symbolIndex = Math.floor(charactersTyped / 15) % loadingSymbols.length;
+      const newSymbol = loadingSymbols[symbolIndex];
+      if (newSymbol !== loadingSymbol) {
+        console.log('Updating symbol at', charactersTyped, 'chars:', loadingSymbol, '→', newSymbol);
+        setLoadingSymbol(newSymbol);
+      }
+    }
+  }, [displayedText, loadingSymbols, loadingSymbol]);
+
   // Start typing after height is locked
   useEffect(() => {
     if (!isReady || containerHeight === null) return;
@@ -56,14 +73,16 @@ const TypingText: React.FC<TypingTextProps> = ({
     const startTyping = () => {
       setIsTyping(true);
       let currentIndex = 0;
+      const fullText = prefixText + text;
       
       const typeNextChar = () => {
-        if (currentIndex < text.length) {
-          setDisplayedText(text.slice(0, currentIndex + 1));
+        if (currentIndex < fullText.length) {
+          setDisplayedText(fullText.slice(0, currentIndex + 1));
           currentIndex++;
           setTimeout(typeNextChar, speed);
         } else {
           setIsTyping(false);
+          setLoadingSymbol('※'); // Always reset to original symbol when done
         }
       };
       
@@ -72,7 +91,7 @@ const TypingText: React.FC<TypingTextProps> = ({
 
     const timer = setTimeout(startTyping, delay);
     return () => clearTimeout(timer);
-  }, [text, speed, delay, isReady, containerHeight]);
+  }, [text, speed, delay, isReady, containerHeight, prefixText]);
 
   return (
     <div 
@@ -92,7 +111,7 @@ const TypingText: React.FC<TypingTextProps> = ({
           position: isReady ? 'absolute' : 'static'
         }}
       >
-        {text}
+        {prefixText + text}
       </pre>
       {isReady && (
         <pre 
@@ -106,7 +125,19 @@ const TypingText: React.FC<TypingTextProps> = ({
             padding: 0
           }}
         >
-          {displayedText}
+          {(() => {
+            // Replace the first ※ symbol with the current loading symbol in cyan
+            const text = displayedText;
+            if (text.length > 0 && text.charAt(0) === '※') {
+              return (
+                <>
+                  <span id="loading-symbol" style={{ color: '#06b6d4' }}>{loadingSymbol}</span>
+                  {text.slice(1)}
+                </>
+              );
+            }
+            return text;
+          })()}
         </pre>
       )}
     </div>
