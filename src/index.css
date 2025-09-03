@@ -1,3 +1,50 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom animations */
+@keyframes rock {
+  0%, 100% {
+    transform: rotate(-20deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+}
+
+.animate-rock {
+  animation: rock 8s ease-in-out infinite;
+}
+
+/* Typing effect for markdown preview */
+@keyframes blink-cursor {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.typing-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Measurement element */
+.typing-measure {
+  margin: 0;
+  padding: 0;
+}
+
+/* Typing cursor - only show when actively typing */
+.typing-active::after {
+  content: '';
+  display: inline;
+  width: 2px;
+  height: 1.2em;
+  background-color: #06b6d4;
+  animation: blink-cursor 1s infinite;
+  border-left: 2px solid #06b6d4;
+  margin-left: 1px;
+}
