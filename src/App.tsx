@@ -88,7 +88,7 @@ function App() {
         </nav>
 
         {/* Hero Content */}
-        <div className="hero relative z-10 px-6 py-12 lg:px-8 lg:py-24">
+        <div className="hero relative z-10 px-6 py-12 lg:px-8 lg:py-16">
           
           <div className="mx-auto max-w-5xl text-center">
             <h1 className="text-3xl md:text-4xl font-extralight tracking-tight sm:text-6xl lg:text-7xl">
