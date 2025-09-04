@@ -278,6 +278,72 @@ to markdown format using Markdown Maker.
               <p className="text-sm text-gray-400">Get clean markdown ready for agents, LLMs, documentation, or any purpose</p>
             </div>
           </div>
+        {/* FAQ Section */}
+        <div className="mt-20 text-left bg-gray-800 rounded-xl p-8 md:p-16">
+          <div className="lg:grid lg:grid-cols-12 lg:gap-8">
+            <div className="lg:col-span-5">
+              <h2 className="text-3xl font-extralight tracking-tight text-gray-100 sm:text-4xl mb-4">
+                Frequently asked questions
+              </h2>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Can't find the answer you're looking for? Reach out to us on{' '}
+                <a 
+                  href="https://github.com/clarklab/markdown-maker-wp-plugin" 
+                  className="font-medium text-cyan-400 hover:text-cyan-300 transition-colors"
+                >
+                  GitHub
+                </a>.
+              </p>
+            </div>
+            <div className="mt-10 lg:col-span-7 lg:mt-0">
+              <dl className="space-y-8">
+                <div>
+                  <dt className="text-lg font-extralight text-gray-100 mb-2">
+                    How do I use this plugin?
+                  </dt>
+                  <dd className="text-sm text-gray-400 leading-relaxed mb-4">
+                    You can use this plugin to insert special "Copy as Markdown" buttons on your WordPress posts and pages. Then your users can take that content and paste it into their favorite AI tools.
+                  </dd>
+                  <dd className="text-sm text-gray-400 leading-relaxed">
+                    This plugin is designed for developers. You need to manually add the provided functions to your theme templates where you want the copy/download functionality to appear. Use <code className="bg-gray-800 px-1 py-0.5 rounded text-cyan-400">markdown_maker_copy_link()</code> or <code className="bg-gray-800 px-1 py-0.5 rounded text-cyan-400">markdown_maker_download_link()</code> in your PHP templates.
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-lg font-extralight text-gray-100 mb-2">
+                    Is the output compatible with LLMs?
+                  </dt>
+                  <dd className="text-sm text-gray-400 leading-relaxed">
+                    Yes! The Markdown output is specifically formatted to be LLM-friendly with proper metadata headers, clean content structure, and context that helps AI agents understand your content better.
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-lg font-extralight text-gray-100 mb-2">
+                    Where should I place the functions?
+                  </dt>
+                  <dd className="text-sm text-gray-400 leading-relaxed">
+                    Common locations include single.php or page.php templates, custom post type templates, admin areas (with proper permissions checks), or within custom shortcodes and blocks.
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-lg font-extralight text-gray-100 mb-2">
+                    Does this work with custom post types?
+                  </dt>
+                  <dd className="text-sm text-gray-400 leading-relaxed">
+                    Yes, the plugin works with any public post type including custom post types. It will convert any WordPress content to clean, well-formatted Markdown.
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-lg font-extralight text-gray-100 mb-2">
+                    What does the Markdown output include?
+                  </dt>
+                  <dd className="text-sm text-gray-400 leading-relaxed">
+                    The output includes post metadata (title, author, date, URL), clean content conversion with proper formatting for headings, lists, links, and images, plus categories, tags, and excerpts when available.
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
         </div>
       </section>
 
